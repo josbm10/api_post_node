@@ -3,7 +3,7 @@ const router = express.Router();
 
 const mysqlConnection = require('../lib/mysql');
 
-router.get('/categoria',(req,res) => {
+router.get('/',(req,res) => {
     mysqlConnection.query('call obtenerCategorias',(err,rows,fields) => {
         if(!err){
             res.json(
@@ -18,7 +18,7 @@ router.get('/categoria',(req,res) => {
     });
 });
 
-router.get('/categoria/:id',(req,res) => {
+router.get('/:id',(req,res) => {
     const {id} = req.params;
     mysqlConnection.query('CALL obtenerCategoriaPorId(?)',[id],(err,rows,fields)=>
     {
@@ -30,7 +30,7 @@ router.get('/categoria/:id',(req,res) => {
     });
 });
 
-router.get('/categoria/:id/platos',(req,res)=>{
+router.get('/:id/platos',(req,res)=>{
     const {id} = req.params;
 
     mysqlConnection.query('CALL obtenerCategoriaPorId(?)',[id],(err,rows)=>{

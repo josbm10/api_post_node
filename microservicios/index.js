@@ -13,7 +13,7 @@ app.get('/',(req,res)=> {
     res.json({mensaje:'bienvenido a mi API punto de venta'})
 })
 
-app.use(require('./routes/categoria'));
+
 app.use(require('./routes/empleado'));
 app.use(require('./routes/mesa'));
 app.use(require('./routes/pedido'));
